@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2>Mascota</h2>
+      <p>
+        <strong>Nombre:</strong>
+        <%= @pet.name %>
+      </p>
+
+      <p>
+        <strong>edad:</strong>
+        <%= @pet.age %>
+      </p>
+
+      <p>
+        <strong>sexo:</strong>
+        <%= @pet.sex %>
+      </p>
+
+      <p>
+        <strong>estado:</strong>
+        <%= if @pet.alive
+              'viva'
+            else
+              'muerta'
+            end
+        %>
+      </p>
+
+      <p>
+        <strong>tipo:</strong>
+        <%= @pet.breed %>
+      </p>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <p><%= link_to 'Volver', user_path(@user), :class => "btn btn-primary" %></p>
+</div>

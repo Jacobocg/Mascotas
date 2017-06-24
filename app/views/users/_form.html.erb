@@ -1,0 +1,36 @@
+<div class="container bg-warning">
+  <%= form_for @user do |f| %>
+    <p>
+      <%= f.label :nombre %><br>
+      <%= f.text_field :name %>
+    </p>
+
+    <p>
+      <%= f.label :apellido %><br>
+      <%= f.text_field :surname %>
+    </p>
+
+    <p>
+      <%= f.label :email %><br>
+      <%= f.text_field :email %>
+    </p>
+
+    <p>
+      <%= f.submit 'Guardar', :class => "btn btn-primary" %>
+    </p>
+  <% end %>
+
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %>
+        Problema guardando el usuario:
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+</div>

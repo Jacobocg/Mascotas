@@ -1,0 +1,27 @@
+<div class="container">
+  <h1>Listado de usuarios</h1>
+
+  <table class="table">
+    <tr>
+      <th>Nombre</th>
+      <th>Apellidos</th>
+      <th>Acciones</th>
+    </tr>
+
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.surname %></td>
+        <td><%= link_to 'Ver', user_path(user), :class => "btn btn-default" %>
+            <%= link_to 'Editar', edit_user_path(user), :class => "btn btn-default" %>
+            <%= link_to 'Borrar', user_path(user),
+                :class => "btn btn-default",
+                method: :delete,
+                data: {confirm: '¿Seguro que quieres borrar este usuario?'}
+            %>
+        </td>
+      </tr>
+    <% end %>
+  </table>
+  <%= link_to 'Añadir usuario', new_user_path, :class => "btn btn-primary" %>
+</div>

@@ -1,0 +1,41 @@
+<div class="container bg-warning">
+  <%= form_for :pet do |f| %>
+    <p>
+      <%= f.label :nombre %><br>
+      <%= f.text_field :name %>
+    </p>
+    <p>
+      <%= f.label :edad %><br>
+      <%= f.text_field :age %>
+    </p>
+    <p>
+      <%= f.label :sexo %><br />
+      <%= f.label :sex, "Macho", :value => "macho"  %>
+      <%= f.radio_button :sex, "macho" %>
+      <%= f.label :sex, "Hembra", :value => "hembra" %>
+      <%= f.radio_button :sex, "hembra", :checked => true %>
+    </p>
+    <p>
+      <%= f.label :estado %><br />
+      <%= f.label :alive, "Viva", :value => "viva"  %>
+      <%= f.radio_button :alive, true, :checked => true %>
+      <%= f.label :alive, "Muerta", :value => "muerta" %>
+      <%= f.radio_button :alive, false %>
+    </p>
+
+    <p>
+      <%= f.label :Tipo %>
+      <%= f.select :breed, options_for_select(breeds.map{ |b| [b.breed] }) %>
+    </p>
+    <p>
+      <%= f.submit "Guardar", :class => "btn btn-primary" %>
+    </p>
+  <% end %>
+  <% if @pet.errors.any? %>
+      <% @pet.errors.full_messages.each do |msg| %>
+        <div class="alert alert-danger">
+          <%= msg %>
+        </div>
+      <% end %>
+    <% end %>
+</div>

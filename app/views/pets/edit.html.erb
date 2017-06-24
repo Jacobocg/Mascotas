@@ -1,0 +1,8 @@
+<div class="container">
+  <h1>Editar mascota</h1>
+
+  <%= render 'form', breeds: @breed, pet: @pet %>
+</div>
+<div class="container">
+  <%= link_to 'Volver', user_path(@user), :class => "btn btn-primary" %>
+</div>

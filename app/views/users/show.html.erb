@@ -1,0 +1,43 @@
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2>Usuario</h2>
+      <p>
+        <strong>Nombre:</strong>
+        <%= @user.name %>
+      </p>
+
+      <p>
+        <strong>Apellidos:</strong>
+        <%= @user.surname %>
+      </p>
+
+      <p>
+        <strong>Email:</strong>
+        <%= @user.email %>
+      </p>
+    </div>
+    <div class="panel-body">
+      <h2>Mascotas</h2>
+    </div>
+
+    <ul class="list-group">
+      <% @user.pets.each do |pet| %>
+        <li class="list-group-item">
+          <p>
+            <strong>Nombre:</strong>
+            <%= pet.name %>
+            <%= link_to 'Ver', user_pet_path(@user, pet), :class => "btn btn-default" %>
+            <%= link_to 'Editar', edit_user_pet_path(@user, pet), :class => "btn btn-default" %>
+          </p>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <div>
+    <%= link_to 'Editar usuario', edit_user_path(@user), :class => "btn btn-primary" %>
+    <%= link_to 'Añadir mascota', new_user_pet_path(@user), :class => "btn btn-primary" %>
+    <br/><br/>
+    <p><%= link_to 'Volver', users_path, :class => "btn btn-primary" %></p>
+  </div>
+</div>
